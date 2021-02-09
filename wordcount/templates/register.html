@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="all">
+</head>
+<body>
+
+    <header>
+		<nav class="mnu navbar-light">
+			<ul class="menu">
+				<li class="active"><a href="/">Home</a></li>
+				<li class="active"><a href="login">Login</a></li>
+			</ul>
+    	</nav>
+
+    <div class="container py-md-5">
+            <form class="form-horizontal" action="register" method="post">
+            {% csrf_token %}
+                 <div class="form-group">
+                    <label class="control-label col-sm-2">First Name : </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="Enter first name" name="first_name">
+                        </div>
+                 </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Last Name : </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="Enter last name" name="last_name">
+                        </div>
+                 </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Username : </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="Enter userame" name="username">
+                        </div>
+                 </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Email : </label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" placeholder="Enter email" name="email">
+                        </div>
+                 </div>
+
+                 <div class="form-group">
+                     <label class="control-label col-sm-2">Password : </label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" placeholder="Enter password" name="password1">
+                        </div>
+                 </div>
+
+                <div class="form-group">
+                     <label class="control-label col-sm-2">Confirm Password : </label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" placeholder="Confirm password" name="password2">
+                        </div>
+                 </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+
+        </form>
+
+    </div>
+    </header>
+
+    <div class="container bg-success text-center">
+        {% for message in messages %}
+            <h3> <em>  {{ message }} </em> </h3>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
